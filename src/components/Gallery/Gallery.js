@@ -37,10 +37,7 @@ class Gallery extends Component {
     componentWillReceiveProps(){
         console.log('from gallery '+this.props.keyWord)
         if(this.props.keyWord!==''){
-            let newList = this.state.contacts.filter(contact=>{
-                contact.gender==='male'
-            })
-            console.log(newList)
+
         } else {
             console.log('EMPTY STRING!')
             //remove yellow background
@@ -56,7 +53,7 @@ class Gallery extends Component {
             <div className='Gallery'>
                 {this.state.contacts.length>0? 
                 this.state.contacts.map((contact,i)=>{
-                    return <Contact key={i} picture={contact.picture.large} firstName={contact.name.first} lastName={contact.name.last} email={contact.email} gender={contact.gender}/>
+                    return <Contact keyWord={this.props.keyWord} key={i} picture={contact.picture.large} firstName={contact.name.first} lastName={contact.name.last} email={contact.email} gender={contact.gender}/>
                 })
                 
                 

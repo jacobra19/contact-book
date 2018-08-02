@@ -1,10 +1,13 @@
 .Contact{
     border: 1px solid red;
-    background-color: beige;    
 }
 
 img{
     border-radius: 50%;
+}
+
+.regular{
+    background-color: beige;    
 }
 
 .highlight{
