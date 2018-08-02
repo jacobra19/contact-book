@@ -8,6 +8,7 @@ class Gallery extends Component {
         super(props);
         this.state = {
             contacts : [],
+            filterContacts:[],
             numOfContacts:9
         };
         this.getContacts = this.getContacts.bind(this)
@@ -22,12 +23,28 @@ class Gallery extends Component {
               this.setState({
                 contacts: myContacts
               })
-            //   this.setState({contacts:res.data.results})
               console.log('state update: ',this.state.contacts)
           })
           .catch(error=>{
               console.log(error)
           })
+    }
+
+    addYellow(){
+        
+    }
+
+    componentWillReceiveProps(){
+        console.log('from gallery '+this.props.keyWord)
+        if(this.props.keyWord!==''){
+            let newList = this.state.contacts.filter(contact=>{
+                contact.gender==='male'
+            })
+            console.log(newList)
+        } else {
+            console.log('EMPTY STRING!')
+            //remove yellow background
+        }
     }
 
     componentDidMount() {
