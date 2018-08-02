@@ -1,6 +1,12 @@
 .Contact{
-    width: 200px;
-    height: 200px;
     border: 1px solid red;
-    margin: 5px;
+    background-color: beige;    
+}
+
+img{
+    border-radius: 50%;
+}
+
+.highlight{
+    background-color: yellow;
 }

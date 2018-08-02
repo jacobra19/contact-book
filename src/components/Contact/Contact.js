@@ -17,9 +17,9 @@ class Contact extends Component {
     render(){
         return(
             <div className='Contact'>
-                <img src={this.state.picture}></img>
-                <p>{this.state.firstName} {this.state.lastName}</p>
-                <p>{this.state.email}</p>
+                <img className='image1' src={this.state.picture}></img>
+                <p className='p1'>{this.state.firstName} {this.state.lastName}</p>
+                <p className='p1'>{this.state.email}</p>
             </div>
         )
     }

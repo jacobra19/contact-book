@@ -10,19 +10,28 @@ class Gallery extends Component {
             contacts : [],
             numOfContacts:9
         };
+        this.getContacts = this.getContacts.bind(this)
     }
 
-    componentDidMount() {
+    getContacts(){
         axios.get(`https://randomuser.me/api/?results=9`)
           .then(res => {
               console.log('initial staet: ',this.state.contacts)
               console.log(res.data.results)
-              this.setState({contacts:res.data.results})
+              let myContacts = [...this.state.contacts, ...res.data.results]
+              this.setState({
+                contacts: myContacts
+              })
+            //   this.setState({contacts:res.data.results})
               console.log('state update: ',this.state.contacts)
           })
           .catch(error=>{
               console.log(error)
           })
+    }
+
+    componentDidMount() {
+        this.getContacts();
       }
 
     render(){
@@ -38,7 +47,7 @@ class Gallery extends Component {
                 : null}
 
 
-                <button>LOAD MORE</button>
+                <button onClick={this.getContacts}>LOAD MORE</button>
             </div>
         )
     }

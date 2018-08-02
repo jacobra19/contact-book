@@ -1,0 +1,11 @@
+form{
+    display: flex;
+    justify-content: center;
+}
+
+input{
+   width:  100vmin;
+    height: 30px;
+    font-size: 20px;
+    font-family: monospace;
+}

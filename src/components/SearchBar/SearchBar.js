@@ -5,7 +5,9 @@ class SearchBar extends Component {
     render(){
         return(
             <div className='SearchBar'>
-                <p>This is SearchBar</p>
+                <form>
+                    <input type="text" placeholder="Search By Regex"/>
+                </form>            
             </div>
         )
     }
