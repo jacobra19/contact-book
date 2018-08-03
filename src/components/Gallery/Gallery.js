@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './Gallery.css'
 import axios from 'axios';
 import Contact from '../Contact/Contact'
+import Button from '@material-ui/core/Button';
 
 class Gallery extends Component {
     constructor(props) {
@@ -65,13 +66,10 @@ class Gallery extends Component {
                     />
 
                 })
-                
-                
-                
                 : null}
-
-
-                <button onClick={this.getContacts}>LOAD MORE</button>
+                <Button onClick={this.getContacts}  variant="contained" color="secondary" >
+                    LOAD MORE
+                </Button>
             </div>
         )
     }

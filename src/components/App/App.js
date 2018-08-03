@@ -28,7 +28,6 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h5>Received by parent: {this.state.inputValue}</h5>
         <SearchBar sendData={this.getData}/>
         <Gallery keyWord={this.state.inputValue}/>
       </div>
