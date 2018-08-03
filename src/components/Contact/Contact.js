@@ -5,21 +5,19 @@ class Contact extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            picture: props.picture,
-            firstName: props.firstName,
-            lastName: props.lastName,
-            email: props.email,
-            gender: props.gender,
             isMatchFound: false
         };
     }
-
     searchKeys(){
         if(this.props.keyWord===''){
             this.setState({
                 isMatchFound: false
             })
-        } else if (this.state.firstName.match(this.props.keyWord)||this.state.lastName.match(this.props.keyWord)){
+        } else if (
+                this.props.firstName.match(this.props.keyWord)||
+                this.props.lastName.match(this.props.keyWord)||
+                this.props.fullName.match(this.props.keyWord)
+                ){
             this.setState({
                 isMatchFound: true
             })
@@ -31,7 +29,6 @@ class Contact extends Component {
         }
 
     }
-    
     componentWillReceiveProps(){
         this.searchKeys();
     }
@@ -39,9 +36,9 @@ class Contact extends Component {
     render(){
         return(
             <div className={this.state.isMatchFound ?'highlight Contact':'regular Contact'}>
-                <img className='image1' src={this.state.picture}></img>
-                <p className='p1'>{this.state.firstName} {this.state.lastName}</p>
-                <p className='p1'>{this.state.email}</p>
+                <img src={this.props.picture}></img>
+                <p>{this.props.fullNameCapital}</p>
+                <p>{this.props.email}</p>
             </div>
         )
     }

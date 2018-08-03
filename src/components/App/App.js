@@ -18,10 +18,10 @@ class App extends Component {
     this.setState({
       inputValue:val
     },()=>this.setState({
-      state: this.state
+      state:this.state
     }))
-    console.log('parent: '+this.state.inputValue);
 }
+  
 
 
 
