@@ -3,6 +3,9 @@ import './Gallery.css'
 import axios from 'axios';
 import Contact from '../Contact/Contact'
 import Button from '@material-ui/core/Button';
+import { Grid } from '@material-ui/core';
+import Typography from '@material-ui/core/Typography';
+
 
 class Gallery extends Component {
     constructor(props) {
@@ -51,23 +54,27 @@ class Gallery extends Component {
     render(){
         return(
             <div className='Gallery'>
-                {this.state.contacts.length>0? 
-                this.state.contacts.map((contact,i)=>{
-                    return <Contact 
-                    keyWord={this.props.keyWord.toLowerCase()} 
-                    key={i} 
-                    picture={contact.picture.large} 
-                    firstName={contact.name.first} 
-                    lastName={contact.name.last} 
-                    email={contact.email} 
-                    gender={contact.gender}
-                    fullName={contact.name.first+' '+contact.name.last}
-                    fullNameCapital={this.capitalizeName(contact.name.first,contact.name.last)}
-                    />
+                <Grid container spacing={24}>
+                    {this.state.contacts.length>0? 
+                    this.state.contacts.map((contact,i)=>{
+                        return <Contact 
+                        keyWord={this.props.keyWord.toLowerCase()} 
+                        key={i} 
+                        picture={contact.picture.medium} 
+                        firstName={contact.name.first} 
+                        lastName={contact.name.last} 
+                        email={contact.email} 
+                        gender={contact.gender}
+                        fullName={contact.name.first+' '+contact.name.last}
+                        fullNameCapital={this.capitalizeName(contact.name.first,contact.name.last)}
+                        />
 
-                })
-                : null}
-                <Button onClick={this.getContacts}  variant="contained" color="secondary" >
+                    })
+                    :   
+                        null
+                    }
+                </Grid>
+                <Button className={'my-button'} onClick={this.getContacts}  variant="contained" color="secondary">
                     LOAD MORE
                 </Button>
             </div>

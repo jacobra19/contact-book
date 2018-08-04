@@ -1,4 +1,10 @@
 import React, { Component } from 'react';
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+import Typography from '@material-ui/core/Typography';
+
+import { Grid } from '@material-ui/core';
 import './Contact.css'
 
 class Contact extends Component {
@@ -35,11 +41,19 @@ class Contact extends Component {
 
     render(){
         return(
-            <div className={this.state.isMatchFound ?'highlight Contact':'regular Contact'}>
-                <img src={this.props.picture}></img>
-                <p>{this.props.fullNameCapital} <i className={this.props.gender==='male'?'fa fa-male':'fa fa-female'}></i></p>
-                <p>{this.props.email}</p>
-            </div>
+            <Grid item xs={6} sm={4}>
+                <Card className={this.state.isMatchFound ?'highlight Contact':'regular Contact'}>
+                    <img src={this.props.picture}/>
+                    <CardContent className={'my-card-content'}>
+                        <Typography variant="subheading" gutterBottom>
+                            {this.props.fullNameCapital} <i className={this.props.gender==='male'?'fa fa-male':'fa fa-female'}></i>
+                        </Typography>
+                        <Typography variant="subheading" gutterBottom>
+                            {this.props.email}
+                        </Typography>
+                    </CardContent>
+                </Card>
+            </Grid>
         )
     }
 }

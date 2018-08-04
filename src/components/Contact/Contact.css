@@ -1,15 +1,26 @@
 .Contact{
-    border: 1px solid red;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 img{
+
+    /* display: flex;
+    justify-items: center; */
     border-radius: 50%;
+    padding: 8px;
 }
 
 .regular{
-    background-color: beige;    
+    background-color: white;    
 }
 
 .highlight{
-    background-color: yellow;
+    background-color: yellow !important; 
 }
+
+/* .my-card-content{
+    width: 80%;
+    background-color: aquamarine !important;
+} */

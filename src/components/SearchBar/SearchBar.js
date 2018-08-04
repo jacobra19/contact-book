@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import './SearchBar.css'
 import { Paper } from '@material-ui/core';
+import AppBar from '@material-ui/core/AppBar';
+import Typography from '@material-ui/core/Typography';
+import Toolbar from '@material-ui/core/Toolbar';
 import Input from '@material-ui/core/Input';
 
 class SearchBar extends Component {
@@ -22,17 +25,21 @@ class SearchBar extends Component {
 
     render(){
         return(
-            <div className='SearchBar'>
-                <form>
-                    <Paper elevation={4}>
+            <AppBar className='SearchBar'  position="sticky" color="default">
+                <Toolbar >
                     <Input
                         placeholder="Search By Regex"
                         autoFocus={true}
                         onChange={this.handleChange}
+                        fullWidth
                     />
-                    </Paper>
-                </form>            
-            </div>
+                    <Typography variant="subheading" gutterBottom>
+                        second line
+                    </Typography>
+                </Toolbar>
+             
+
+            </AppBar>
         )
     }
 }
