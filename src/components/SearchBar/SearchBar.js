@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import './SearchBar.css'
+import { Paper } from '@material-ui/core';
+import Input from '@material-ui/core/Input';
 
 class SearchBar extends Component {
     constructor(props) {
@@ -22,7 +24,13 @@ class SearchBar extends Component {
         return(
             <div className='SearchBar'>
                 <form>
-                    <input type="text" placeholder="Search By Regex" onChange={this.handleChange}/>
+                    <Paper elevation={4}>
+                    <Input
+                        placeholder="Search By Regex"
+                        autoFocus={true}
+                        onChange={this.handleChange}
+                    />
+                    </Paper>
                 </form>            
             </div>
         )

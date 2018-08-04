@@ -37,7 +37,7 @@ class Contact extends Component {
         return(
             <div className={this.state.isMatchFound ?'highlight Contact':'regular Contact'}>
                 <img src={this.props.picture}></img>
-                <p>{this.props.fullNameCapital}</p>
+                <p>{this.props.fullNameCapital} <i className={this.props.gender==='male'?'fa fa-male':'fa fa-female'}></i></p>
                 <p>{this.props.email}</p>
             </div>
         )
