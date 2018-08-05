@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { withStyles } from '@material-ui/core/styles';
-import { Paper } from '@material-ui/core';
 import AppBar from '@material-ui/core/AppBar';
-import Typography from '@material-ui/core/Typography';
 import Toolbar from '@material-ui/core/Toolbar';
 import Input from '@material-ui/core/Input';
 import FormGroup from '@material-ui/core/FormGroup';
@@ -10,22 +8,20 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 
 const styles = theme => ({
-    appbar:{
-    },
     toolbar:{
         margin:'0 auto',
         display: 'flex',
         flexDirection: 'column',
-        alignItems: 'center'
+        alignItems: 'center',
     },
     formgroup:{
         margin:'0 auto'
     },
     input: {
-        margin: theme.spacing.unit,
         width: '1000px',
         margin: '10px auto 3px auto',
-        fontSize: '20px'
+        fontSize: '20px',
+        fontFamily: 'Ubuntu'
     },
   });
 
@@ -40,11 +36,8 @@ class SearchBar extends Component {
         this.handleChangeInput = this.handleChangeInput.bind(this);
         this.handleChangeMale = this.handleChangeMale.bind(this);
         this.handleChangeFemale = this.handleChangeFemale.bind(this);
-
     }
     handleChangeInput(event){
-        console.log('child: '+event.target.value)
-        // sends data to perent (App)
         this.props.sendInputValue(event.target.value);
         event.preventDefault();
     }
@@ -67,7 +60,7 @@ class SearchBar extends Component {
         const { classes } = this.props;
 
         return(
-            <AppBar className={classes.appbar} position="sticky" color="default">
+            <AppBar position="sticky" color="default">
                 <Toolbar className={classes.toolbar}>
                     <Input
                         className={classes.input}
@@ -96,13 +89,9 @@ class SearchBar extends Component {
                             />
                         </FormGroup>
                 </Toolbar>
-             
-
             </AppBar>
         )
     }
 }
 
 export default withStyles(styles)(SearchBar);
-
-// export default SearchBar;

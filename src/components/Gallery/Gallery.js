@@ -4,7 +4,6 @@ import axios from 'axios';
 import Contact from '../Contact/Contact'
 import Button from '@material-ui/core/Button';
 import { Grid } from '@material-ui/core';
-import Typography from '@material-ui/core/Typography';
 
 const styles = theme => ({
     gallery:{
@@ -32,20 +31,17 @@ class Gallery extends Component {
     getContacts(){
         axios.get(`https://randomuser.me/api/?results=9`)
           .then(res => {
-              console.log('initial staet: ',this.state.contacts)
-              console.log(res.data.results)
               let myContacts = [...this.state.contacts, ...res.data.results]
               this.setState({
                 contacts: myContacts
               })
-              console.log('state update: ',this.state.contacts)
           })
           .catch(error=>{
               console.log(error)
           })
     }
     capitalizeName(first,last){
-        let full = first+' '+last;
+        let full = `${first} ${last}`
         let splited =  full.split(' ')
         let uppered = splited.map(function(word) {
             return (word.charAt(0).toUpperCase() + word.slice(1));
@@ -54,16 +50,9 @@ class Gallery extends Component {
         return result;
     }
 
-
-    componentWillReceiveProps(){
-        console.log('from gallery '+this.props.keyWord)
-        console.log('show male ',this.props.showMales)
-        console.log('from females ',this.props.showFemales)
-    }
-
     componentDidMount() {
         this.getContacts();
-      }
+    }
 
 
     render(){
@@ -84,10 +73,9 @@ class Gallery extends Component {
                         lastName={contact.name.last} 
                         email={contact.email} 
                         gender={contact.gender}
-                        fullName={contact.name.first+' '+contact.name.last}
+                        fullName={`${contact.name.first} ${contact.name.last}`}
                         fullNameCapital={this.capitalizeName(contact.name.first,contact.name.last)}
                         />
-
                     })
                     :   
                         null

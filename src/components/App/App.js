@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import { withStyles } from '@material-ui/core/styles';
-
-import './App.css';
 import SearchBar from '../SearchBar/SearchBar'
 import Gallery from '../Gallery/Gallery'
 
 const styles = theme => ({
   app:{
+    marginBottom: '24px'
   }
 });
 
@@ -24,14 +23,12 @@ class App extends Component {
   }
 
   getInputValue(val){
-    // gets data from child(SearchBar)
     this.setState({
       inputValue:val
     },()=>this.setState({
       state:this.state
     }))
   }
-
   getMaleGenderChange(val){
     this.setState({
       showMales:val
@@ -46,9 +43,6 @@ class App extends Component {
       state:this.state
     }))
   }
-  
-
-
 
   render() {
     const { classes } = this.props;
@@ -56,7 +50,7 @@ class App extends Component {
     return (
       <div className={classes.app}>
         <SearchBar sendInputValue={this.getInputValue} sendMaleGenderChange={this.getMaleGenderChange} sendFemaleGenderChange={this.getFemaleGenderChange}/>
-        <Gallery showMales={this.state.showMales} showFemales={this.state.showFemales} keyWord={this.state.inputValue}/>
+        <Gallery keyWord={this.state.inputValue} showMales={this.state.showMales} showFemales={this.state.showFemales}/>
       </div>
     );
   }
