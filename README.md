@@ -18,4 +18,4 @@
     * Email
     * Gender (Will be represented by a male or a female icon)
 
-![wireframe]('/src/media/jobinterview.png')
+![wireframe](/src/media/jobinterview.png)
