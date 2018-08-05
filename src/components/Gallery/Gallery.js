@@ -1,11 +1,24 @@
 import React, { Component } from 'react';
-import './Gallery.css'
+import { withStyles } from '@material-ui/core/styles';
 import axios from 'axios';
 import Contact from '../Contact/Contact'
 import Button from '@material-ui/core/Button';
 import { Grid } from '@material-ui/core';
 import Typography from '@material-ui/core/Typography';
 
+const styles = theme => ({
+    gallery:{
+        display: 'flex',
+        justifyContent: 'space-around',
+        flexDirection: 'column',
+        alignItems: 'center',
+        margin: '24px auto 0 auto',
+        maxWidth: '1000px'
+    },
+    button:{
+        marginTop: '24px'
+    }
+});
 
 class Gallery extends Component {
     constructor(props) {
@@ -54,8 +67,10 @@ class Gallery extends Component {
 
 
     render(){
+        const { classes } = this.props;
+
         return(
-            <div className='Gallery'>
+            <div className={classes.gallery}>
                 <Grid container spacing={24}>
                     {this.state.contacts.length>0? 
                     this.state.contacts.map((contact,i)=>{
@@ -78,7 +93,7 @@ class Gallery extends Component {
                         null
                     }
                 </Grid>
-                <Button className={'my-button'} onClick={this.getContacts}  variant="contained" color="secondary">
+                <Button className={classes.button} onClick={this.getContacts}  variant="contained" color="secondary">
                     LOAD MORE
                 </Button>
             </div>
@@ -86,4 +101,4 @@ class Gallery extends Component {
     }
 }
 
-export default Gallery;
+export default withStyles(styles)(Gallery);

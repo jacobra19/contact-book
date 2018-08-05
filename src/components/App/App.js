@@ -1,8 +1,14 @@
 import React, { Component } from 'react';
+import { withStyles } from '@material-ui/core/styles';
+
 import './App.css';
 import SearchBar from '../SearchBar/SearchBar'
 import Gallery from '../Gallery/Gallery'
 
+const styles = theme => ({
+  app:{
+  }
+});
 
 class App extends Component {
   constructor(props) {
@@ -45,13 +51,15 @@ class App extends Component {
 
 
   render() {
+    const { classes } = this.props;
+
     return (
-      <div className="App">
+      <div className={classes.app}>
         <SearchBar sendInputValue={this.getInputValue} sendMaleGenderChange={this.getMaleGenderChange} sendFemaleGenderChange={this.getFemaleGenderChange}/>
-        <Gallery showMales={this.state.showMales} showFemales={this.state.showFemales} keyWord={this.state.inputValue} showMales={this.state.showMales} showFemales={this.state.showFemales}/>
+        <Gallery showMales={this.state.showMales} showFemales={this.state.showFemales} keyWord={this.state.inputValue}/>
       </div>
     );
   }
 }
 
-export default App;
+export default withStyles(styles)(App);

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { withStyles } from '@material-ui/core/styles';
-import './SearchBar.css'
 import { Paper } from '@material-ui/core';
 import AppBar from '@material-ui/core/AppBar';
 import Typography from '@material-ui/core/Typography';
@@ -11,15 +10,22 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 
 const styles = theme => ({
+    appbar:{
+    },
     toolbar:{
+        margin:'0 auto',
         display: 'flex',
-        flexDirection: 'column'
+        flexDirection: 'column',
+        alignItems: 'center'
+    },
+    formgroup:{
+        margin:'0 auto'
     },
     input: {
-      margin: theme.spacing.unit,
-      width: '1000px',
-      margin: '0 auto',
-      fontSize: '20px'
+        margin: theme.spacing.unit,
+        width: '1000px',
+        margin: '10px auto 3px auto',
+        fontSize: '20px'
     },
   });
 
@@ -61,7 +67,7 @@ class SearchBar extends Component {
         const { classes } = this.props;
 
         return(
-            <AppBar className='SearchBar'  position="sticky" color="default">
+            <AppBar className={classes.appbar} position="sticky" color="default">
                 <Toolbar className={classes.toolbar}>
                     <Input
                         className={classes.input}
@@ -69,8 +75,7 @@ class SearchBar extends Component {
                         autoFocus={true}
                         onChange={this.handleChangeInput}
                     />
-                    <div>
-                        <FormGroup row>
+                        <FormGroup className={classes.formgroup} row>
                             <FormControlLabel
                             control={
                                 <Checkbox
@@ -90,7 +95,6 @@ class SearchBar extends Component {
                             label="Female"
                             />
                         </FormGroup>
-                    </div>
                 </Toolbar>
              
 
