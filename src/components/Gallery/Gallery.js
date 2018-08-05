@@ -44,6 +44,8 @@ class Gallery extends Component {
 
     componentWillReceiveProps(){
         console.log('from gallery '+this.props.keyWord)
+        console.log('show male ',this.props.showMales)
+        console.log('from females ',this.props.showFemales)
     }
 
     componentDidMount() {
@@ -58,6 +60,8 @@ class Gallery extends Component {
                     {this.state.contacts.length>0? 
                     this.state.contacts.map((contact,i)=>{
                         return <Contact 
+                        showMales={this.props.showMales}
+                        showFemales={this.props.showFemales}
                         keyWord={this.props.keyWord.toLowerCase()} 
                         key={i} 
                         picture={contact.picture.medium} 

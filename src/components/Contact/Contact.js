@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
@@ -6,6 +7,10 @@ import Typography from '@material-ui/core/Typography';
 
 import { Grid } from '@material-ui/core';
 import './Contact.css'
+
+const styles = theme => ({
+
+  });
 
 class Contact extends Component {
     constructor(props) {
@@ -40,6 +45,10 @@ class Contact extends Component {
     }
 
     render(){
+        const { classes } = this.props;
+        if((!this.props.showMales && this.props.gender==='male')||(!this.props.showFemales && this.props.gender==='female')){
+            return null
+        } else {
         return(
             <Grid item xs={6} sm={4}>
                 <Card className={this.state.isMatchFound ?'highlight Contact':'regular Contact'}>
@@ -56,6 +65,7 @@ class Contact extends Component {
             </Grid>
         )
     }
+    }
 }
 
-export default Contact;
+export default withStyles(styles)(Contact);
